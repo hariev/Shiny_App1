@@ -27,7 +27,7 @@ server <- function(input, output, session) {
     drv = JDBC(urldetails[[1]],dbjarhome[[2]], identifier.quote='`')
     conn <- dbConnect(drv, urldetails[[2]], urldetails[[3]], urldetails[[4]])
     on.exit(dbDisconnect(conn), add = TRUE)
-    query <- c(paste0("SELECT * FROM CAMPAIGN_UPDATES_JAN_JUN_16_SW where DAY IN (","'",c(input$text),"'",")"))
+    query <- c(paste0("SELECT * FROM TABLE where DAY IN (","'",c(input$text),"'",")"))
     rs = dbSendQuery(conn, query)
     firstBatch = fetch(rs, n = input$nrows)
     open <- firstBatch
@@ -50,4 +50,3 @@ server <- function(input, output, session) {
 }
 
 shinyApp(ui, server)
-shinyapps::deployApp('dir path of file location') 
