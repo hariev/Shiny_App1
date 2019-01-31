@@ -7,6 +7,7 @@ library(RWeka)
 library(ggplot2)
 
 #--- Configuration ---#
+#--- Drivers and Space Allocation ---#
 dbjarhome <- c('C:/Program Files/Java/jdk1.8.0_91/jre','D:/ojdbc14-10.2.0.4.0.jar') 
 urldetails <- c('oracle.jdbc.driver.OracleDriver','jdbc:oracle:thin:@ip:port','username','password')
 options(java.parameters="-Xmx6g")
